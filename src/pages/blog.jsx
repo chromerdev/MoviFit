@@ -46,7 +46,7 @@ function Blog() {
     <Container maxWidth="lg" sx={{ py: 5 }}>
       {/* Cabeçalho */}
       <Box mb={4}>
-        <Typography variant="h3" fontWeight="bold" sx={{ fontFamily : "Arial" }}>
+        <Typography variant="h3" fontWeight="bold" sx={{ fontFamily: "Arial" }}>
           Blog
         </Typography>
 
