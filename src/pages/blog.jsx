@@ -120,11 +120,11 @@ function Blog() {
     <Container maxWidth="lg" sx={{ py: 5 }}>
       {/* Cabeçalho */}
       <Box mb={4}>
-        <Typography variant="h3" fontWeight="bold" sx={{ fontFamily: "Arial" }}>
+        <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: '#333' }}>
           Blog
         </Typography>
 
-        <Typography color="text.secondary" sx={{ mt: 1, mb: 4 }}>
+        <Typography variant="subtitle1" sx={{ mb: 4, color: '#666', maxWidth: '600px' }}>
           Confira nossas últimas postagens.
         </Typography>
       </Box>
