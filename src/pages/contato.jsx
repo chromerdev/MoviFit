@@ -5,16 +5,18 @@ import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Swal from 'sweetalert2';
 import Paper from '@mui/material/Paper';
-import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import WhatsAppIcon from '@mui/icons-material/Whatsapp';
+import { useTheme } from '@mui/material/styles';
 
 function Contato() {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [mensagem, setMensagem] = useState('');
+  const theme = useTheme();
+
   const handleEnviar = () => {
     if (nome === '' || email === '' || mensagem === '') {
       Swal.fire({
@@ -38,7 +40,7 @@ function Contato() {
       icon: 'success',
       title: 'Enviado!',
       text: 'Mensagem enviada com sucesso!',
-      confirmButtonColor: '#d32f2f',
+      confirmButtonColor: theme.palette.primary.main,
     });
 
     setNome('');
@@ -48,10 +50,10 @@ function Contato() {
 
   return (
     <Box sx={{ p: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: '#333' }}>
+      <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
         Contato
       </Typography>
-      <Typography variant="subtitle1" sx={{ mb: 4, color: '#666', textAlign: 'center', maxWidth: '600px' }}>
+      <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 4, textAlign: 'center', maxWidth: '600px' }}>
         Entre em contato conosco. Preencha o formulário abaixo ou use nossos canais de atendimento.
       </Typography>
       <Box
@@ -81,14 +83,14 @@ function Contato() {
               mb: 2,
               textDecoration: 'none',
               color: 'inherit',
-              '&:hover': { color: '#d32f2f' },
+              '&:hover': { color: 'primary.main' },
             }}
           >
-            <WhatsAppIcon sx={{ color: '#d32f2f' }} />
+            <WhatsAppIcon color="primary" />
             <Typography>(69) 99373-9439</Typography>
           </Box>
 
-          <Box 
+          <Box
             component="a"
             href="mailto:contato@movifit.com"
             target="_blank"
@@ -99,13 +101,13 @@ function Contato() {
               mb: 2,
               textDecoration: 'none',
               color: 'inherit',
-              '&:hover': { color: '#d32f2f' },
+              '&:hover': { color: 'primary.main' },
             }}>
-            <EmailIcon sx={{ color: '#d32f2f' }} />
+            <EmailIcon color="primary" />
             <Typography>contato@movifit.com</Typography>
           </Box>
 
-          <Box 
+          <Box
             component="a"
             href="https://www.instagram.com/movifit.oficial/"
             target="_blank"
@@ -116,57 +118,52 @@ function Contato() {
               mb: 2,
               textDecoration: 'none',
               color: 'inherit',
-              '&:hover': { color: '#d32f2f' },
+              '&:hover': { color: 'primary.main' },
             }}>
-            <InstagramIcon sx={{ color: '#d32f2f' }} />
+            <InstagramIcon color="primary" />
             <Typography>@movifit.oficial</Typography>
           </Box>
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-            <LocationOnIcon sx={{ color: '#d32f2f' }} />
+            <LocationOnIcon color="primary" />
             <Typography>Av. Sete de Setembro, 1200 — Porto Velho/RO</Typography>
           </Box>
         </Paper>
-      <Paper elevation={3} sx={{ p: 4, width: '100%', maxWidth: '500px', borderRadius: 3 }}>
-      <TextField
-        label="Nome"
-        variant="outlined"
-        value={nome}
-        onChange={(e) => setNome(e.target.value)}
-        sx={{ width: '100%', maxWidth: '500px', mb: 2 }}
-      />
-      <TextField
-        label="E-mail"
-        variant="outlined"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        sx={{ width: '100%', maxWidth: '500px', mb: 2 }}
-      />
-      <TextField
-        label="Mensagem"
-        variant="outlined"
-        value={mensagem}
-        onChange={(e) => setMensagem(e.target.value)}
-        multiline
-        rows={4}
-        sx={{ width: '100%', maxWidth: '500px', mb: 2 }}
-      />
-      <Button
-          variant="contained"
-          onClick={handleEnviar}
-          sx={{
-            width: '100%',
-            py: 1.5,
-            backgroundColor: '#d32f2f',
-            '&:hover': { backgroundColor: '#b01919' },
-          }}
-        >
-          Enviar
-        </Button>
 
-      </Paper>
-      
-        </Box>
+        <Paper elevation={3} sx={{ p: 4, width: '100%', maxWidth: '500px', borderRadius: 3 }}>
+          <TextField
+            label="Nome"
+            variant="outlined"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            sx={{ width: '100%', maxWidth: '500px', mb: 2 }}
+          />
+          <TextField
+            label="E-mail"
+            variant="outlined"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            sx={{ width: '100%', maxWidth: '500px', mb: 2 }}
+          />
+          <TextField
+            label="Mensagem"
+            variant="outlined"
+            value={mensagem}
+            onChange={(e) => setMensagem(e.target.value)}
+            multiline
+            rows={4}
+            sx={{ width: '100%', maxWidth: '500px', mb: 2 }}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleEnviar}
+            sx={{ width: '100%', py: 1.5 }}
+          >
+            Enviar
+          </Button>
+        </Paper>
+      </Box>
     </Box>
   );
 }
