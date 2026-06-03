@@ -68,14 +68,14 @@ export default function CalculadoraIMC() {
           required
           fullWidth
         />
-        <Button type="submit" variant="contained" color="primary" sx={{ mt: 1, py: 1.5, backgroundColor: '#CC1F1F', '&:hover': { backgroundColor: '#b01919' } }}>
+        <Button type="submit" variant="contained" color="primary" sx={{ mt: 1, py: 1.5 }}>
           Calcular IMC
         </Button>
       </Box>
 
       {/* Resultado do IMC */}
       {imc && (
-        <Box sx={{ mt: 4, p: { xs: 2, md: 4 }, bgcolor: '#fbfaf5', borderRadius: 3, border: '1px solid #eaeaea' }}>
+        <Box sx={{ mt: 4, p: { xs: 2, md: 4 }, bgcolor: 'background.default', borderRadius: 3, border: '1px solid', borderColor: 'divider' }}>
 
           {/* Gráfico e Textos de Classificação */}
           <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: { xs: 2, md: 4 } }}>
@@ -86,17 +86,17 @@ export default function CalculadoraIMC() {
 
             {/* Informações em Texto */}
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-              <Typography variant="body1" sx={{ color: '#555', fontWeight: 500, mb: 0.5 }}>
+              <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 500, mb: 0.5 }}>
                 Seu IMC
               </Typography>
-              <Typography variant="h3" sx={{ fontWeight: 800, color: '#d32f2f', lineHeight: 1 }}>
+              <Typography variant="h3" sx={{ fontWeight: 800, color: colorClass, lineHeight: 1 }}>
                 {imc}
               </Typography>
 
-              <Typography variant="body1" sx={{ color: '#555', mt: 2, fontWeight: 500 }}>
+              <Typography variant="body1" sx={{ color: 'text.secondary', mt: 2, fontWeight: 500 }}>
                 Classificação
               </Typography>
-              <Typography variant="h6" sx={{ fontWeight: 600, color: '#000', lineHeight: 1.2, mb: 1 }}>
+              <Typography variant="h6" sx={{ fontWeight: 600, color: 'text.primary', lineHeight: 1.2, mb: 1 }}>
                 {classificacao}
               </Typography>
 
@@ -117,7 +117,7 @@ export default function CalculadoraIMC() {
 
           {/* Barra de Escala */}
           <Box sx={{ mt: 5, px: 1 }}>
-            <Typography variant="body2" sx={{ color: '#555', fontWeight: 500, mb: 1 }}>
+            <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 500, mb: 1 }}>
               Escala de IMC
             </Typography>
 
@@ -152,12 +152,12 @@ export default function CalculadoraIMC() {
 
             {/* Números da Escala */}
             <Box sx={{ position: 'relative', width: '100%', height: '20px', mt: 0.5 }}>
-              <Typography sx={{ position: 'absolute', left: '0%', transform: 'translateX(0%)', fontSize: '0.75rem', color: '#333' }}>16</Typography>
-              <Typography sx={{ position: 'absolute', left: '10.4%', transform: 'translateX(-50%)', fontSize: '0.75rem', color: '#333' }}>18.5</Typography>
-              <Typography sx={{ position: 'absolute', left: '37.5%', transform: 'translateX(-50%)', fontSize: '0.75rem', color: '#333' }}>25</Typography>
-              <Typography sx={{ position: 'absolute', left: '58.3%', transform: 'translateX(-50%)', fontSize: '0.75rem', color: '#333' }}>30</Typography>
-              <Typography sx={{ position: 'absolute', left: '79.1%', transform: 'translateX(-50%)', fontSize: '0.75rem', color: '#333' }}>35</Typography>
-              <Typography sx={{ position: 'absolute', left: '100%', transform: 'translateX(-100%)', fontSize: '0.75rem', color: '#333' }}>40+</Typography>
+              <Typography sx={{ position: 'absolute', left: '0%', transform: 'translateX(0%)', fontSize: '0.75rem', color: 'text.secondary' }}>16</Typography>
+              <Typography sx={{ position: 'absolute', left: '10.4%', transform: 'translateX(-50%)', fontSize: '0.75rem', color: 'text.secondary' }}>18.5</Typography>
+              <Typography sx={{ position: 'absolute', left: '37.5%', transform: 'translateX(-50%)', fontSize: '0.75rem', color: 'text.secondary' }}>25</Typography>
+              <Typography sx={{ position: 'absolute', left: '58.3%', transform: 'translateX(-50%)', fontSize: '0.75rem', color: 'text.secondary' }}>30</Typography>
+              <Typography sx={{ position: 'absolute', left: '79.1%', transform: 'translateX(-50%)', fontSize: '0.75rem', color: 'text.secondary' }}>35</Typography>
+              <Typography sx={{ position: 'absolute', left: '100%', transform: 'translateX(-100%)', fontSize: '0.75rem', color: 'text.secondary' }}>40+</Typography>
             </Box>
 
           </Box>

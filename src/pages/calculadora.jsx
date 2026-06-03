@@ -1,6 +1,6 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import GenericTabs from '../components/Tabs';
+import PageHeader from '../components/PageHeader';
 import CalculadoraIMC from '../components/CalculadoraIMC';
 import CalculadoraTMB from '../components/CalculadoraTMB';
 
@@ -17,16 +17,13 @@ function Calculadora() {
   ];
 
   return (
-    <Box sx={{ p: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
-        Calculadoras de Saúde
-      </Typography>
-      <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 4, textAlign: 'center', maxWidth: '600px' }}>
-        Acompanhe sua saúde e bem-estar através de nossas calculadoras. Escolha a opção desejada abaixo e insira seus dados para obter os resultados.
-      </Typography>
-
+    <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
+      <PageHeader
+        title="Calculadoras de Saúde"
+        subtitle="Acompanhe sua saúde e bem-estar através de nossas calculadoras. Escolha a opção desejada abaixo e insira seus dados para obter os resultados."
+      />
       <GenericTabs tabs={tabsData} />
-    </Box>
+    </Container>
   );
 }
 

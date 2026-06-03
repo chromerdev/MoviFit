@@ -2,12 +2,14 @@ import { useState } from "react";
 import {
   Container,
   Card,
+  CardActionArea,
   CardMedia,
   CardContent,
   Typography,
   Chip,
   Box,
 } from "@mui/material";
+import PageHeader from "../components/PageHeader";
 
 const posts = [
   {
@@ -117,12 +119,13 @@ function Blog() {
   ): posts;
 
   return (
-    <Container maxWidth="lg" sx={{ py: 5 }}>
+    <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
       {/* Cabeçalho */}
-    <Box sx={{display: "flex", flexDirection: "column", alignItems: "center", mb: 4,}}>
-      <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: "bold" }}>Blog</Typography>
-      <Typography variant="subtitle1" color="text.secondary" sx={{textAlign: "center", maxWidth: "600px", }}>Confira nossas últimas postagens.</Typography>
-    </Box>
+      <PageHeader
+        title="Blog"
+        subtitle="Confira nossas últimas postagens sobre saúde, bem-estar e qualidade de vida."
+        align="left"
+      />
 
       {/* Categorias */}
       <Box
@@ -137,7 +140,7 @@ function Blog() {
         <Chip label="Condições de Saúde" color="secondary" onClick={() => setCategoriaSelecionada("Condições de Saúde")}/>
         <Chip label="Dr. Responde" color="warning" onClick={() => setCategoriaSelecionada("Dr. Responde")}/>
         <Chip label="Alimentação" color="success" onClick={() => setCategoriaSelecionada("Alimentação")}/>
-        <Chip label="Todos" variant="outlined" color="black" clickable onClick={() => setCategoriaSelecionada("")}/>
+        <Chip label="Todos" variant="outlined" clickable onClick={() => setCategoriaSelecionada("")}/>
       </Box>
 
       {/* GRID*/}
@@ -156,91 +159,100 @@ function Blog() {
         {postsFiltrados.map((post) => (
           <Card
             key={post.id}
-            onClick={() => window.open(post.url, "_blank")}
             sx={{
               height: 430,
               borderRadius: 4,
               overflow: "hidden",
               display: "flex",
               flexDirection: "column",
-              transition: "0.3s",
-              cursor: "pointer",
-
+              transition: "transform 0.3s, box-shadow 0.3s",
               "&:hover": {
                 transform: "translateY(-5px)",
                 boxShadow: 6,
               },
             }}
           >
-            {/* Imagem */}
-            <CardMedia
-              component="img"
-              image={post.imagem}
-              alt={post.titulo}
+            <CardActionArea
+              onClick={() => window.open(post.url, "_blank")}
               sx={{
-                height: 220,
-                objectFit: "cover",
-              }}
-            />
-
-            {/* Conteúdo */}
-            <CardContent
-              sx={{
-                flexGrow: 1,
+                height: "100%",
                 display: "flex",
                 flexDirection: "column",
+                alignItems: "stretch",
+                justifyContent: "flex-start",
               }}
             >
-              <Chip
-                label={post.categoria}
-                size="small"
+              {/* Imagem */}
+              <CardMedia
+                component="img"
+                image={post.imagem}
+                alt={post.titulo}
                 sx={{
-                  width: "fit-content",
-                  mb: 2,
+                  height: 220,
+                  objectFit: "cover",
                 }}
               />
 
-              {/* Título */}
-              <Typography
-                variant="h6"
-                fontWeight="bold"
+              {/* Conteúdo */}
+              <CardContent
                 sx={{
-                  mb: 1,
-
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-
-                  minHeight: 64,
+                  flexGrow: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "100%",
                 }}
               >
-                {post.titulo}
-              </Typography>
+                <Chip
+                  label={post.categoria}
+                  size="small"
+                  color="primary"
+                  variant="outlined"
+                  sx={{
+                    width: "fit-content",
+                    mb: 2,
+                  }}
+                />
 
-              {/* Data */}
-              <Typography
-                variant="caption"
-                color="text.secondary"
-                sx={{ mb: 2 }}
-              >
-                {post.data}
-              </Typography>
+                {/* Título */}
+                <Typography
+                  variant="h6"
+                  fontWeight="bold"
+                  sx={{
+                    mb: 1,
+                    display: "-webkit-box",
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                    minHeight: 64,
+                  }}
+                >
+                  {post.titulo}
+                </Typography>
 
-              {/* Descrição */}
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                }}
-              >
-                {post.descricao}
-              </Typography>
-            </CardContent>
+                {/* Data */}
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  sx={{ mb: 2 }}
+                >
+                  {post.data}
+                </Typography>
+
+                {/* Descrição */}
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{
+                    display: "-webkit-box",
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                  }}
+                >
+                  {post.descricao}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
           </Card>
         ))}
       </Box>

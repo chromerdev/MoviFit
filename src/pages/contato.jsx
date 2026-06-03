@@ -1,14 +1,16 @@
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Swal from 'sweetalert2';
 import Paper from '@mui/material/Paper';
+import PageHeader from '../components/PageHeader';
 import EmailIcon from '@mui/icons-material/Email';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import WhatsAppIcon from '@mui/icons-material/Whatsapp';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { useTheme } from '@mui/material/styles';
 
 function Contato() {
@@ -49,13 +51,11 @@ function Contato() {
   };
 
   return (
-    <Box sx={{ p: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
-        Contato
-      </Typography>
-      <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 4, textAlign: 'center', maxWidth: '600px' }}>
-        Entre em contato conosco. Preencha o formulário abaixo ou use nossos canais de atendimento.
-      </Typography>
+    <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
+      <PageHeader
+        title="Contato"
+        subtitle="Entre em contato conosco. Preencha o formulário abaixo ou use nossos canais de atendimento."
+      />
       <Box
         sx={{
           display: 'flex',
@@ -63,6 +63,7 @@ function Contato() {
           gap: 3,
           width: '100%',
           maxWidth: '1050px',
+          mx: 'auto',
           justifyContent: 'center',
           alignItems: 'stretch',
         }}
@@ -164,7 +165,7 @@ function Contato() {
           </Button>
         </Paper>
       </Box>
-    </Box>
+    </Container>
   );
 }
 

@@ -38,7 +38,9 @@ export default function CalculadoraTMB() {
       onSubmit={calculadoraTaxa}
       sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 2 }}
     >
-      <Typography variant="h5">Calculadora de TMB</Typography>
+      <Typography variant="h6" gutterBottom>
+        Calcule sua Taxa Metabólica Basal (TMB)
+      </Typography>
 
       <TextField
         label="Peso (kg)"
@@ -79,13 +81,13 @@ export default function CalculadoraTMB() {
         type="submit"
         variant="contained"
         color="primary"
-        sx={{ mt: 1, py: 1.5, backgroundColor: '#CC1F1F', '&:hover': { backgroundColor: '#b01919' } }}
+        sx={{ mt: 1, py: 1.5 }}
       >
         Calcular TMB
       </Button>
 
       {tmb !== null && (
-        <div style={{ marginTop: "40px", display: "flex", justifyContent: "center" }}>
+        <Box sx={{ mt: 5, display: 'flex', justifyContent: 'center' }}>
           <Gauge
             value={tmb}
             min={1000}
@@ -95,7 +97,7 @@ export default function CalculadoraTMB() {
             valueLabelDisplay="on"
             text={({ value }) => `TMB: ${value.toFixed(0)} kcal/dia`}
           />
-        </div>
+        </Box>
       )}
     </Box>
   );

@@ -3,9 +3,12 @@ import ImageListItem from '@mui/material/ImageListItem';
 
 export default function StandardImageList() {
   return (
-    <ImageList sx={{ width: 1000, height: 600, borderRadius: 4, 
-      overflow: "hidden"}} cols={4} rowHeight={164}>
-
+    <ImageList
+      sx={{ width: '100%', maxWidth: 1000, borderRadius: 4, overflow: 'hidden', m: 0 }}
+      cols={4}
+      rowHeight={164}
+      gap={8}
+    >
       {itemData.map((item) => (
         <ImageListItem key={item.img}>
           <img
