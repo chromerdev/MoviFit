@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import GenericTabs from '../components/Tabs';
 import CalculadoraIMC from '../components/CalculadoraIMC';
-import calculadoraTMB from '../components/CalculadoraTMB';
+import CalculadoraTMB from '../components/CalculadoraTMB';
 
 function Calculadora() {
   const tabsData = [
@@ -12,7 +12,7 @@ function Calculadora() {
     },
     {
       label: 'Calculadora TMB',
-      content: <calculadoraTMB />,
+      content: <CalculadoraTMB />,
     },
   ];
 
