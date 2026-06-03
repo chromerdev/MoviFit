@@ -119,15 +119,10 @@ function Blog() {
   return (
     <Container maxWidth="lg" sx={{ py: 5 }}>
       {/* Cabeçalho */}
-      <Box mb={4}>
-        <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: '#333' }}>
-          Blog
-        </Typography>
-
-        <Typography variant="subtitle1" sx={{ mb: 4, color: '#666', maxWidth: '600px' }}>
-          Confira nossas últimas postagens.
-        </Typography>
-      </Box>
+    <Box sx={{display: "flex", flexDirection: "column", alignItems: "center", mb: 4,}}>
+      <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: "bold" }}>Blog</Typography>
+      <Typography variant="subtitle1" color="text.secondary" sx={{textAlign: "center", maxWidth: "600px", }}>Confira nossas últimas postagens.</Typography>
+    </Box>
 
       {/* Categorias */}
       <Box
