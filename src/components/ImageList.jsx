@@ -1,21 +1,30 @@
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
+// ============================================================
+// COMPONENTE: StandardImageList  (GALERIA DE IMAGENS)
+// ------------------------------------------------------------
+// Mostra uma grade (grid) de imagens. É usado na página Home
+// para deixar a apresentação mais visual e atraente.
+// ============================================================
+
+import ImageList from '@mui/material/ImageList';         // Grade de imagens
+import ImageListItem from '@mui/material/ImageListItem'; // Cada imagem dentro da grade
 
 export default function StandardImageList() {
   return (
     <ImageList
       sx={{ width: '100%', maxWidth: 1000, borderRadius: 4, overflow: 'hidden', m: 0 }}
-      cols={4}
-      rowHeight={164}
-      gap={8}
+      cols={4}        // Número de colunas
+      rowHeight={164} // Altura de cada linha de imagens
+      gap={8}         // Espaçamento entre as imagens
     >
+      {/* Percorre a lista "itemData" e cria uma imagem para cada item */}
       {itemData.map((item) => (
         <ImageListItem key={item.img}>
           <img
+            // "srcSet" e "src" carregam a imagem em tamanho adequado
             srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
             src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
             alt={item.title}
-            loading="lazy"
+            loading="lazy" // Carrega a imagem só quando ela vai aparecer na tela (mais rápido)
           />
         </ImageListItem>
       ))}
@@ -23,6 +32,10 @@ export default function StandardImageList() {
   );
 }
 
+// ------------------------------------------------------------
+// itemData: a LISTA de imagens (endereço da imagem + título).
+// Para adicionar/remover imagens da galeria, edite esta lista.
+// ------------------------------------------------------------
 const itemData = [
   {
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',

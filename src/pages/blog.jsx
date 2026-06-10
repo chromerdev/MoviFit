@@ -1,16 +1,32 @@
-import { useState } from "react";
-import {
-  Container,
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardContent,
-  Typography,
-  Chip,
-  Box,
-} from "@mui/material";
-import PageHeader from "../components/PageHeader";
+// ============================================================
+// PÁGINA: Blog
+// ------------------------------------------------------------
+// Mostra uma lista de POSTS (artigos) em forma de cartões.
+// O usuário pode FILTRAR os posts por categoria clicando nas
+// "etiquetas" (Chips) no topo. Ao clicar num cartão, abre o
+// link do artigo em uma nova aba.
+// ============================================================
 
+// --- Importações ---
+import { useState } from "react"; // Cria "estados" (memória do componente)
+import {
+  Container,      // Limita e centraliza o conteúdo
+  Card,           // Cartão de cada post
+  CardActionArea, // Área clicável do cartão
+  CardMedia,      // Imagem do cartão
+  CardContent,    // Conteúdo de texto do cartão
+  Typography,     // Textos
+  Chip,           // "Etiqueta" (usada nas categorias)
+  Box,            // "Caixa" para organizar o layout
+} from "@mui/material";
+import PageHeader from "../components/PageHeader"; // Cabeçalho reutilizável
+
+// ------------------------------------------------------------
+// posts: a LISTA de artigos do blog.
+// Cada post tem: id, categoria, título, descrição, data,
+// imagem e a URL (link) do artigo completo.
+// Para adicionar um novo post, basta acrescentar um item aqui.
+// ------------------------------------------------------------
 const posts = [
   {
     id: 1,
@@ -111,23 +127,28 @@ const posts = [
 ];
 
 function Blog() {
-
+  // ESTADO: guarda qual categoria está selecionada no filtro.
+  // Quando vazio (""), mostramos TODOS os posts.
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
 
+  // Decide quais posts exibir:
+  // - Se há uma categoria selecionada, filtra só os posts dela.
+  // - Se não (""), mostra todos.
   const postsFiltrados = categoriaSelecionada ? posts.filter(
     (post) => post.categoria === categoriaSelecionada
   ): posts;
 
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
-      {/* Cabeçalho */}
+      {/* CABEÇALHO da página */}
       <PageHeader
         title="Blog"
         subtitle="Confira nossas últimas postagens sobre saúde, bem-estar e qualidade de vida."
         align="left"
       />
 
-      {/* Categorias */}
+      {/* FILTRO DE CATEGORIAS: cada Chip seleciona uma categoria.
+          O Chip "Todos" limpa o filtro (mostra tudo). */}
       <Box
         sx={{
           display: "flex",
@@ -143,7 +164,7 @@ function Blog() {
         <Chip label="Todos" variant="outlined" clickable onClick={() => setCategoriaSelecionada("")}/>
       </Box>
 
-      {/* GRID*/}
+      {/* GRADE (GRID) DE POSTS: 1 coluna no celular, 2 no tablet, 3 no PC */}
       <Box
         sx={{
           display: "grid",
@@ -156,6 +177,7 @@ function Blog() {
 
           gap: 3,
         }}>
+        {/* Percorre a lista filtrada e cria um cartão para cada post */}
         {postsFiltrados.map((post) => (
           <Card
             key={post.id}
@@ -166,12 +188,13 @@ function Blog() {
               display: "flex",
               flexDirection: "column",
               transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
+              "&:hover": { // Eleva o cartão ao passar o mouse
                 transform: "translateY(-5px)",
                 boxShadow: 6,
               },
             }}
           >
+            {/* Área clicável: ao clicar, abre o link do post em nova aba */}
             <CardActionArea
               onClick={() => window.open(post.url, "_blank")}
               sx={{
@@ -182,7 +205,7 @@ function Blog() {
                 justifyContent: "flex-start",
               }}
             >
-              {/* Imagem */}
+              {/* Imagem do post */}
               <CardMedia
                 component="img"
                 image={post.imagem}
@@ -193,7 +216,7 @@ function Blog() {
                 }}
               />
 
-              {/* Conteúdo */}
+              {/* Conteúdo de texto do post */}
               <CardContent
                 sx={{
                   flexGrow: 1,
@@ -202,6 +225,7 @@ function Blog() {
                   width: "100%",
                 }}
               >
+                {/* Etiqueta da categoria */}
                 <Chip
                   label={post.categoria}
                   size="small"
@@ -213,7 +237,7 @@ function Blog() {
                   }}
                 />
 
-                {/* Título */}
+                {/* Título do post (limitado a 2 linhas) */}
                 <Typography
                   variant="h6"
                   fontWeight="bold"
@@ -229,7 +253,7 @@ function Blog() {
                   {post.titulo}
                 </Typography>
 
-                {/* Data */}
+                {/* Data de atualização */}
                 <Typography
                   variant="caption"
                   color="text.secondary"
@@ -238,7 +262,7 @@ function Blog() {
                   {post.data}
                 </Typography>
 
-                {/* Descrição */}
+                {/* Descrição curta (limitada a 2 linhas) */}
                 <Typography
                   variant="body2"
                   color="text.secondary"
