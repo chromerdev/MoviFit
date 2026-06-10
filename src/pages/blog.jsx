@@ -11,15 +11,11 @@
 import { useState } from "react"; // Cria "estados" (memória do componente)
 import {
   Container,      // Limita e centraliza o conteúdo
-  Card,           // Cartão de cada post
-  CardActionArea, // Área clicável do cartão
-  CardMedia,      // Imagem do cartão
-  CardContent,    // Conteúdo de texto do cartão
-  Typography,     // Textos
   Chip,           // "Etiqueta" (usada nas categorias)
   Box,            // "Caixa" para organizar o layout
 } from "@mui/material";
 import PageHeader from "../components/PageHeader"; // Cabeçalho reutilizável
+import BlogCard from "../components/BlogCard"; // Cartão de post reutilizável
 
 // ------------------------------------------------------------
 // posts: a LISTA de artigos do blog.
@@ -179,105 +175,7 @@ function Blog() {
         }}>
         {/* Percorre a lista filtrada e cria um cartão para cada post */}
         {postsFiltrados.map((post) => (
-          <Card
-            key={post.id}
-            sx={{
-              height: 430,
-              borderRadius: 4,
-              overflow: "hidden",
-              display: "flex",
-              flexDirection: "column",
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": { // Eleva o cartão ao passar o mouse
-                transform: "translateY(-5px)",
-                boxShadow: 6,
-              },
-            }}
-          >
-            {/* Área clicável: ao clicar, abre o link do post em nova aba */}
-            <CardActionArea
-              onClick={() => window.open(post.url, "_blank")}
-              sx={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "stretch",
-                justifyContent: "flex-start",
-              }}
-            >
-              {/* Imagem do post */}
-              <CardMedia
-                component="img"
-                image={post.imagem}
-                alt={post.titulo}
-                sx={{
-                  height: 220,
-                  objectFit: "cover",
-                }}
-              />
-
-              {/* Conteúdo de texto do post */}
-              <CardContent
-                sx={{
-                  flexGrow: 1,
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                }}
-              >
-                {/* Etiqueta da categoria */}
-                <Chip
-                  label={post.categoria}
-                  size="small"
-                  color="primary"
-                  variant="outlined"
-                  sx={{
-                    width: "fit-content",
-                    mb: 2,
-                  }}
-                />
-
-                {/* Título do post (limitado a 2 linhas) */}
-                <Typography
-                  variant="h6"
-                  fontWeight="bold"
-                  sx={{
-                    mb: 1,
-                    display: "-webkit-box",
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                    minHeight: 64,
-                  }}
-                >
-                  {post.titulo}
-                </Typography>
-
-                {/* Data de atualização */}
-                <Typography
-                  variant="caption"
-                  color="text.secondary"
-                  sx={{ mb: 2 }}
-                >
-                  {post.data}
-                </Typography>
-
-                {/* Descrição curta (limitada a 2 linhas) */}
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{
-                    display: "-webkit-box",
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                  }}
-                >
-                  {post.descricao}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
+          <BlogCard key={post.id} post={post} />
         ))}
       </Box>
     </Container>
