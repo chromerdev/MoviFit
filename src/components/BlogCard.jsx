@@ -12,12 +12,41 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
+import Collapse from '@mui/material/Collapse';
+import CardActions from '@mui/material/CardActions';
+import IconButton from '@mui/material/IconButton';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { styled } from '@mui/material/styles';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShareIcon from '@mui/icons-material/Share';
+
+const ExpandMore = styled(({ expand, ...other }) => {
+  return <IconButton {...other} />;
+})(({ theme, expand }) => ({
+  marginLeft: 'auto',
+  transition: theme.transitions.create('transform', {
+    duration: theme.transitions.duration.shortest,
+  }),
+  transform: expand ? 'rotate(180deg)' : 'rotate(0deg)',
+}));
 
 export default function BlogCard({ post }) {
+
+  const [expanded, setExpanded] = useState(false);
+  const [favorito, setFavorito] = useState(false);
+  
+
+  const handleExpandClick = (event) => {
+    event.stopPropagation(); // impede abrir o link
+    setExpanded(prev => !prev);
+  };
+
   return (
     <Card
       sx={{
-        height: 430,
+        minHeight: 430,
+        height: 'auto',
         borderRadius: 4,
         overflow: 'hidden',
         display: 'flex',
@@ -30,7 +59,7 @@ export default function BlogCard({ post }) {
       }}
     >
       <CardActionArea
-        onClick={() => window.open(post.url, '_blank')}
+        onClick={() => setExpanded(!expanded)}
         sx={{
           height: '100%',
           display: 'flex',
@@ -104,6 +133,39 @@ export default function BlogCard({ post }) {
             {post.descricao}
           </Typography>
         </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="adicionar aos favoritos"
+            onClick={(event) => {
+              event.stopPropagation();
+              setFavorito(!favorito);
+            }}>
+            <FavoriteIcon color={favorito ? 'error' : 'inherit'} />
+          </IconButton>
+
+          <IconButton aria-label="compartilhar"
+            onClick={(event) => {
+              event.stopPropagation();
+              window.open(post.url, '_blank');
+            }}>
+            <ShareIcon />
+          </IconButton>
+
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="mostrar mais"
+          >
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography variant="body2" color="text.secondary">
+              {post.conteudo}
+            </Typography>
+          </CardContent>
+        </Collapse>
       </CardActionArea>
     </Card>
   );

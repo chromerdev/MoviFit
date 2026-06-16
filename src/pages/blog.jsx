@@ -29,12 +29,13 @@ const posts = [
     categoria: "Saúde da mulher",
     titulo: "Menopausa: o que é a reposição hormonal...",
     descricao:
-      "Ainda cercada de mitos, terapia pode ajudar a aliviar sintomas...",
+      "A reposição hormonal é um tratamento que visa aliviar os sintomas da menopausa, como ondas de calor, insônia e alterações de humor.",
+    conteudo: "A reposição hormonal pode ajudar a aliviar ondas de calor, insônia, alterações de humor e outros sintomas comuns da menopausa. O tratamento deve ser acompanhado por um médico especialista.",
     data: "Atualizado em 20/05/2026",
     imagem:
       "https://images.unsplash.com/photo-1515377905703-c4788e51af15",
       url:
-      "https://www.amesuamente.org.br/blog/cinco-mitos-sobre-terapia/"
+      "https://clinicaviver.com/como-funciona-a-reposicao-hormonal-na-menopausa/"
   },
   {
     id: 2,
@@ -42,6 +43,7 @@ const posts = [
     titulo: "Quais são e o que fazem os órgãos do sistema nervoso?",
     descricao:
       "Ele é formado por órgãos e estruturas que atuam no controle do corpo...",
+    conteudo: "O sistema nervoso é composto pelo cérebro, medula espinhal e nervos periféricos. Sua função é coordenar as atividades do organismo e responder aos estímulos do ambiente.",
     data: "Atualizado em 19/05/2026",
     imagem:
       "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69",
@@ -54,6 +56,7 @@ const posts = [
     titulo: "Por que o uso do clobutinol é contraindicado?",
     descricao:
       "Autoridades sanitárias suspenderam o registro do medicamento...",
+    conteudo: "O clobutinol foi retirado do mercado devido a riscos relacionados ao sistema cardiovascular. Estudos identificaram possíveis efeitos adversos graves, levando autoridades sanitárias a suspenderem sua comercialização e recomendarem alternativas mais seguras.",
     data: "Atualizado em 18/05/2026",
     imagem:
       "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae",
@@ -66,6 +69,7 @@ const posts = [
     titulo: "Quais os melhores execicios para quem estar gravido?",
     descricao:
       "Autoridades sanitárias suspenderam o registro do medicamento...",
+    conteudo: "Exercícios como caminhada, natação e ioga são recomendados para mulheres grávidas. Eles ajudam a manter a saúde física e mental durante a gestação.",
     data: "Atualizado em 26/05/2026",
     imagem:
       "https://imgs.search.brave.com/nKyBcg4rLSlQHXuFvDPA0pJAjl_W0REDakZaBKSoFgc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9ibG9n/LmF0aGxldGljLmNv/bS5ici93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMy8wNi9hdGl2/aWRhZGVzLWZpc2lj/YXMtcGFyYS1tdWxo/ZXJlcy1ncmF2aWRh/cy0xLS5wbmc_eDY5/MzYz",
@@ -78,6 +82,7 @@ const posts = [
     titulo: "Qual a diferença entre whey concentrado, isolado e hidrosilado?",
     descricao:
       "Autoridades sanitárias suspenderam o registro do medicamento...",
+    conteudo: "O whey protein é uma fonte de proteína de alta qualidade derivada do leite. Existem três formas principais: concentrado, isolado e hidrolisado. Cada uma tem características distintas em termos de pureza, digestibilidade e teor de proteína.",
     data: "Atualizado em 03/05/2026",
     imagem:
       "https://imgs.search.brave.com/S_mDz384eE1tDGi2AFEaIBij2_1fm-TYs3cQJylT4f8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9ldmlk/YS5jb20uYnIvY2Ru/L3Nob3AvYXJ0aWNs/ZXMvd2hleS1jb25j/ZW50cmFkby1pc29s/YWRvLWhpZHJvbGlz/YWRvLndlYnA_dj0x/NzczNDk0NjYwJndp/ZHRoPTExMDA",
@@ -90,11 +95,12 @@ const posts = [
     titulo: "Eu tenho problemas de hipertensão quais são os melhores exercícios?",
     descricao:
       "Autoridades sanitárias suspenderam o registro do medicamento...",
+    conteudo: "Exercícios aeróbicos como caminhada, ciclismo e natação são recomendados para pessoas com hipertensão. Eles ajudam a melhorar a função cardiovascular e reduzir a pressão arterial.",
     data: "Atualizado em 21/05/2026",
     imagem:
       "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae",
       url:
-      "https://imgs.search.brave.com/t2v0XHkmNCS-HvvTjmSA2gU2C7eeqPts_U9ZL9RuaVc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS51bmltZWRjYW1w/aW5hcy5jb20uYnIv/NGMxZWQ3M2QtMTVj/Zi00Y2Q3LWJmYzUt/OGEzMDM4OTNjMWU5"
+      "https://www.bbc.com/portuguese/articles/cp37jr4510eo"
   },
     {
     id: 7,
@@ -102,6 +108,7 @@ const posts = [
     titulo: "Tenho pré-diabetes, qual alimentação eu devo seguir?",
     descricao:
       "Autoridades sanitárias suspenderam o registro do medicamento...",
+    conteudo: "Uma dieta equilibrada é essencial para pessoas com pré-diabetes. Ela deve incluir alimentos ricos em fibras, proteínas magras e gorduras saudáveis, além de controlar o consumo de carboidratos.",
     data: "Atualizado em 21/05/2026",
     imagem:
       "https://imgs.search.brave.com/1W8Q8tmUZCd9xl1QOOXDErOTKydjL2FNL1aQTmWM9l4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9kaWFi/ZXRlcy5vcmcuYnIv/d3AtY29udGVudC91/cGxvYWRzLzIwMjEv/MDUvZGVzY29icmkt/cXVlLXRlbmhvLWRp/YWJldGVzLWNvbW8t/ZGV2ZXJhLWZpY2Fy/LW1pbmhhLWFsaW1l/bnRhY2FvLmpwZw",
@@ -114,6 +121,7 @@ const posts = [
     titulo: "Qual dieta meu filho deveria seguir para crecer saudavel?",
     descricao:
       "Autoridades sanitárias suspenderam o registro do medicamento...",
+    conteudo: "Uma dieta equilibrada é essencial para crianças e adolescentes. Ela deve incluir uma variedade de alimentos nutritivos, como frutas, vegetais, proteínas e carboidratos complexos, para promover um crescimento e desenvolvimento saudáveis.",
     data: "Atualizado em 21/05/2026",
     imagem:
       "https://imgs.search.brave.com/klqPSx3bdJkn-U6PclHDqDhy9-lS5XNLG4M6ZreK3AY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9vZG91/dG9yLmNvbS5ici93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMy8w/OC9vZG91dG9yLWFs/aW1lbnRhY2FvLWlu/ZmFudGlsLjItMTAy/NHg1NzYuanBn",
@@ -172,6 +180,8 @@ function Blog() {
           },
 
           gap: 3,
+
+          alignItems: "start", // faz com que os cards sejam abertos sem influnciar os outros cards, ou seja, cada card tem seu proprio estado de aberto ou fechado
         }}>
         {/* Percorre a lista filtrada e cria um cartão para cada post */}
         {postsFiltrados.map((post) => (
